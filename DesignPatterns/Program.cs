@@ -1,4 +1,5 @@
-﻿using DesignPatterns.HtmlBuilder;
+﻿using DesignPatterns.Builder;
+using DesignPatterns.HtmlBuilder;
 using System.Text;
 
 namespace EntryPoint
@@ -7,17 +8,13 @@ namespace EntryPoint
     {
         public static void Main()
         {
-            HtmlBuilder html = new("html");
-            HtmlBuilder ul = new("ul");
 
-            html
-                .AddChild(ul.Root);
+            Person yasser = Person.New
+                .Called("Yasser")
+                .WorkingAsA("SWE")
+                .Build();
 
-            ul
-                .AddChild("li", "hello")
-                .AddChild("li", "world");
-
-            Console.WriteLine(html.ToString());
+            Console.WriteLine(yasser.ToString());
         }
     }
 }
