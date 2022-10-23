@@ -1,6 +1,4 @@
-﻿using DesignPatterns.Builder;
-using DesignPatterns.HtmlBuilder;
-using System.Text;
+﻿using DesignPatterns.Builder.Facade;
 
 namespace EntryPoint
 {
@@ -9,11 +7,13 @@ namespace EntryPoint
         public static void Main()
         {
 
-            Person yasser = Person.New
-                .Called("Yasser")
-                .WorkingAsA("SWE")
-                .Build();
+            PersonBuilderFacade pbf = new();
 
+            Person yasser = pbf
+                               .Works.At("Microsoft").AsA("SWE").Earning(5000)
+                               .Lives.In("Port Said").At("Elzohour").WithPostCode("42614");
+
+            
             Console.WriteLine(yasser.ToString());
         }
     }
