@@ -4,22 +4,6 @@
     {
         private double _x, _y;
 
-        // CartesianPoint construction factory method
-        public static Point NewCartesianPoint(double x, double y)
-        {
-            return new Point(x, y);
-        }
-
-        // CartesianPoint construction factory method
-        public static Point NewPolarPoint(double rho, double theta)
-        {
-            double x = rho * Math.Cos(theta);
-            double y = rho * Math.Sin(theta);
-
-            return new Point(x, y);
-        }
-
-        // private constructor used by factory methods
         private Point(double x, double y)
         {
             _x = x;
@@ -44,5 +28,25 @@
 
             return $"{x}: {_x}, {y}: {_y}";
         }
+
+        public static class Factory
+        {
+
+            // CartesianPoint construction factory method
+            public static Point NewCartesianPoint(double x, double y)
+            {
+                return new Point(x, y);
+            }
+
+            // CartesianPoint construction factory method
+            public static Point NewPolarPoint(double rho, double theta)
+            {
+                double x = rho * Math.Cos(theta);
+                double y = rho * Math.Sin(theta);
+
+                return new Point(x, y);
+            }
+        }
+
     }
 }
