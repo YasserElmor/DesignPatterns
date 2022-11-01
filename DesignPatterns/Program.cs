@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Builder.Facade;
+﻿using DesignPatterns.Factory;
 
 namespace EntryPoint
 {
@@ -6,15 +6,8 @@ namespace EntryPoint
     {
         public static void Main()
         {
-
-            PersonBuilderFacade pbf = new();
-
-            Person yasser = pbf
-                               .Works.At("Microsoft").AsA("SWE").Earning(5000)
-                               .Lives.In("Port Said").At("Elzohour").WithPostCode("42614");
-
-            
-            Console.WriteLine(yasser.ToString());
+            var point = Point.NewPolarPoint(1.0, Math.PI / 2);
+            Console.WriteLine(point);
         }
     }
 }
