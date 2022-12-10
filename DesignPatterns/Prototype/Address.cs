@@ -1,10 +1,13 @@
-﻿namespace DesignPatterns.Prototype
+﻿using System.Text.Json.Serialization;
+
+namespace DesignPatterns.Prototype
 {
     public class Address : IPrototype<Address>
     {
-        public string StreetName;
-        public int HouseNumber;
+        public string StreetName { get; set; }
+        public int HouseNumber { get; set; }
 
+        [JsonConstructorAttribute]
         public Address(string streetName, int houseNumber)
         {
             StreetName = streetName ?? throw new ArgumentNullException(nameof(streetName));
