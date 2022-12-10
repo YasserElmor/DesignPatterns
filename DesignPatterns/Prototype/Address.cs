@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.Prototype
 {
-    public class Address
+    public class Address : IPrototype<Address>
     {
         public string StreetName;
         public int HouseNumber;
@@ -20,6 +20,11 @@
         public override string ToString()
         {
             return $"{nameof(StreetName)}: {StreetName}, {nameof(HouseNumber)}: {HouseNumber}";
+        }
+
+        public Address DeepCopy()
+        {
+            return new Address(StreetName, HouseNumber);
         }
     }
 }

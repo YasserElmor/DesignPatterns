@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.Prototype
 {
-    public class Person
+    public class Person : IPrototype<Person>
     {
         public string[] Names;
         public Address Address;
@@ -20,6 +20,11 @@
         public override string ToString()
         {
             return $"{nameof(Address)}: {Address}, {nameof(Names)}: {string.Join(" ", Names)}";
+        }
+
+        public Person DeepCopy()
+        {
+            return new Person(Names, Address.DeepCopy());
         }
     }
 }

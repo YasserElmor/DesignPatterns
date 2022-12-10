@@ -8,7 +8,7 @@ namespace EntryPoint
         {
             var John = new Person(new[] { "John", "Smith" }, new("London Road", 123));
 
-            var Jane = new Person(John);
+            var Jane = John.DeepCopy();
             Jane.Names = new[] { "Jane", "Smith" };
             Jane.Address.HouseNumber = 321;
             Jane.Address.StreetName = "Milky Road";
